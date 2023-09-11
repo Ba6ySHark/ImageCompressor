@@ -2,11 +2,36 @@ import java.lang.Character;
 
 class Node {
     private char value;
+    private String code;
     private Double probability;
+    private boolean isRoot = false;
+    public Node right = null;
+    public Node left = null;
 
     public Node(char val, double prob) {
         this.value = val;
         this.probability = prob;
+    }
+
+    public Node(double prob) {
+        System.out.println(this.value);
+        this.probability = prob;
+    }
+
+    public void setIsRoot() {
+        this.isRoot = true;
+    }
+
+    public void setRigthNode(Node node) {
+        this.right = node;
+    }
+
+    public void setLeftNode(Node node) {
+        this.left = node;
+    }
+
+    public void setCode(String value) {
+        this.code = value;
     }
 
     public char getValue() {
@@ -15,6 +40,10 @@ class Node {
 
     public Double getProbability() {
         return this.probability;
+    }
+
+    public String getCode() {
+        return this.code;
     }
 
     @Override
