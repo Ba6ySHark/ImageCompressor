@@ -5,6 +5,7 @@ class Node {
     private String code;
     private Double probability;
     private boolean isRoot = false;
+    private boolean isLeaf = false;
     public Node right = null;
     public Node left = null;
 
@@ -13,13 +14,28 @@ class Node {
         this.probability = prob;
     }
 
+    public Node(char val, Node left, Node right) {
+        this.value = val;
+        this.left = left;
+        this.right = right;
+    }
+
     public Node(double prob) {
         System.out.println(this.value);
         this.probability = prob;
     }
 
+    public Node(Node node) {
+        this.value = node.getValue();
+        this.probability = node.getProbability();
+    }
+
     public void setIsRoot() {
         this.isRoot = true;
+    }
+
+    public void setIsLeaf() {
+        this.isLeaf = true;
     }
 
     public void setRigthNode(Node node) {
@@ -44,6 +60,10 @@ class Node {
 
     public String getCode() {
         return this.code;
+    }
+
+    public boolean getIsLeaf() {
+        return this.isLeaf;
     }
 
     @Override

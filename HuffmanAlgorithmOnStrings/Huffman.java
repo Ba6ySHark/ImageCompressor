@@ -28,9 +28,13 @@ class Huffman {
             nodes = this.formNodesArray(input_string, letters);
             HuffmanTree tree = new HuffmanTree(nodes);
             // System.out.println(tree.getHuffmanTreeRoot());
-            tree.visitNode(tree.getHuffmanTreeRoot());
+            Node root = tree.getHuffmanTreeRoot();
+            tree.visitNode(root);
             System.out.println(tree.codes);
             file_handler.writeBytes(this.encode(tree.codes), "out.txt");
+            tree.encodeHuffmanTree(root);
+            System.out.println(tree.getEncodedHuffmanTree());
+            // tree.printTree(tree.getDecodedHuffmanTree(tree.getEncodedHuffmanTree()));
         } else {
             System.out.println("Input string length should be greater than 0");
             System.exit(0);
